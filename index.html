@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>FractalLabs — Independent Software Development</title>
+  <meta name="description" content="FractalLabs is an independent development identity building real software: Fractal SafeView, a security-focused video player; FractalLauncher, a Minecraft launcher; and FractalScript, a programming language project.">
+  <meta name="keywords" content="FractalLabs, Fractal SafeView, FractalLauncher, FractalScript, independent software development, video player, Minecraft launcher, programming language">
+  <meta name="author" content="FractalLabs">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0A0D13">
+  <link rel="canonical" href="https://extremeteam.online/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FractalLabs">
+  <meta property="og:url" content="https://extremeteam.online/">
+  <meta property="og:title" content="FractalLabs — Independent Software Development">
+  <meta property="og:description" content="Building software. Exploring possibilities. Fractal SafeView, FractalLauncher and FractalScript — every product ships under the Fractal family.">
+  <meta property="og:image" content="https://i.ibb.co/pjPVP8Rg/Fractal-Labs.jpg">
+  <meta property="og:image:width" content="1408">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="FractalLabs full logo — a stylized fractal mountain in cyan and purple beside the FRACTAL LABS wordmark">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FractalLabs — Independent Software Development">
+  <meta name="twitter:description" content="Building software. Exploring possibilities. Fractal SafeView, FractalLauncher and FractalScript.">
+  <meta name="twitter:image" content="https://i.ibb.co/pjPVP8Rg/Fractal-Labs.jpg">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/n8b2dtz5/Fractal-Labs3.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/n8b2dtz5/Fractal-Labs3.png">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FractalLabs",
+    "url": "https://extremeteam.online/",
+    "description": "FractalLabs is an independent development identity focused on creating software, exploring technology and turning ideas into working products.",
+    "hasPart": [
+      { "@type": "WebSite", "name": "Fractal SafeView", "url": "https://sv.extremeteam.online" },
+      { "@type": "WebSite", "name": "FractalLauncher", "url": "https://launcher.extremeteam.online" },
+      { "@type": "WebSite", "name": "FractalScript", "url": "https://sc.extremeteam.online" }
+    ]
+  }
+  </script>
+
+  <style>
+/* ==========================================================================
+   FractalLabs — styles.css
+   Dark-first design system derived from the FractalLabs logo
+   (cyan #40DDEB peak → blue #3B87DC → indigo/purple base)
+   ========================================================================== */
+
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #0A0D13;
+  --bg-soft: #0D111A;
+  --surface: #111623;
+  --surface-2: #151C2B;
+  --line: #1F2737;
+  --line-strong: #2B3750;
+
+  --text: #EEF2F8;
+  --muted: #9AA5B8;
+
+  --cyan: #40DDEB;
+  --cyan-dim: rgba(64, 221, 235, 0.14);
+  --blue: #3B87DC;
+  --blue-deep: #2B6FBF;
+  --purple: #8B6CE0;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --header-h: 68px;
+  --shadow: 0 18px 40px rgba(2, 5, 10, 0.45);
+
+  --font: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Code", "JetBrains Mono", Consolas, "SF Mono", monospace;
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.6em;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  font-weight: 700;
+}
+
+p { margin: 0 0 1em; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+a:hover { color: #7AE9F3; }
+
+::selection { background: rgba(64, 221, 235, 0.28); color: var(--text); }
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar { width: 10px; }
+body::-webkit-scrollbar-track { background: var(--bg); }
+body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 6px; }
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 32px);
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--cyan);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  color: var(--cyan);
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: rgba(10, 13, 19, 0.82);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.site-header.is-scrolled {
+  border-bottom-color: var(--line-strong);
+  box-shadow: 0 10px 30px rgba(2, 5, 10, 0.35);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+}
+.brand:hover { color: var(--text); }
+.brand-icon { width: 38px; height: 38px; }
+.brand-name {
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.brand-accent { color: var(--cyan); }
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav-link:hover { color: var(--text); background: var(--surface); }
+.nav-link.is-active { color: var(--cyan); }
+
+.nav-footnote {
+  display: none;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--blue-deep);
+  color: #FFFFFF;
+}
+.btn-primary:hover { background: var(--blue); color: #FFFFFF; }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(88px, 14vh, 140px) 0 clamp(88px, 13vh, 130px);
+  background:
+    radial-gradient(1100px 460px at 82% -8%, rgba(59, 135, 220, 0.13), transparent 62%),
+    radial-gradient(900px 420px at 8% 108%, rgba(91, 63, 200, 0.10), transparent 60%),
+    var(--bg);
+}
+
+/* ---------- Hero 3D code blocks ---------- */
+.hero-scene {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 46%;
+  perspective: 1200px;
+  pointer-events: none;
+}
+
+.scene-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.28s ease-out;
+  will-change: transform;
+}
+
+/* Each block is four nested layers:
+   slot (3D placement) > float (bobbing) > spin (click rotation) > block (hover lift). */
+.block-slot {
+  position: absolute;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.block-float,
+.block-spin { transform-style: preserve-3d; }
+.block-spin { transition: transform 1.05s cubic-bezier(0.22, 0.72, 0.24, 1); }
+
+.slot-safeview { top: 8%;  left: 24%; width: 300px; transform: translateZ(50px) rotateY(-9deg) rotateX(3deg); }
+.slot-launcher { top: 45%; left: 12%;  width: 272px; transform: translateZ(6px) rotateY(11deg) rotateX(2deg); }
+.slot-script   { top: 72%; left: 40%; width: 244px; transform: translateZ(-28px) rotateY(-13deg) rotateX(2deg); }
+
+@media (max-width: 1280px) {
+  .hero-scene { width: 42%; }
+  .slot-safeview { left: 26%; }
+  .slot-launcher { left: 12%; }
+}
+@media (max-width: 1120px) {
+  .hero-scene { width: 40%; }
+  .slot-safeview { left: 20%; }
+  .slot-script { left: 34%; }
+}
+
+.code-block {
+  width: 100%;
+  background: rgba(16, 21, 33, 0.93);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(2, 5, 10, 0.55);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.block-slot:hover .code-block,
+.block-slot:focus-visible .code-block {
+  transform: translateZ(46px);
+  border-color: var(--cyan);
+  box-shadow:
+    0 30px 70px rgba(2, 5, 10, 0.65),
+    0 0 0 1px rgba(64, 221, 235, 0.28),
+    0 0 36px rgba(64, 221, 235, 0.12);
+}
+
+.code-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.025);
+}
+.code-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); }
+.code-file {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.slot-safeview .code-file { color: var(--cyan); }
+.slot-launcher .code-file { color: #7FB4EC; }
+.slot-script .code-file { color: #B49BF0; }
+
+.code-body {
+  margin: 0;
+  padding: 13px 16px 15px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.62;
+  color: #C9D4E8;
+  white-space: pre;
+  overflow: hidden;
+}
+.j-key { color: var(--cyan); }
+.j-str { color: #8FA6D9; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .block-float { animation: blockFloat 6.5s ease-in-out infinite alternate; }
+  .block-float.f2 { animation-duration: 7.5s; animation-delay: -2.2s; }
+  .block-float.f3 { animation-duration: 8.5s; animation-delay: -4.4s; }
+  .code-block { animation: blockIn 0.8s ease backwards; }
+  .slot-safeview .code-block { animation-delay: 0.15s; }
+  .slot-launcher .code-block { animation-delay: 0.35s; }
+  .slot-script .code-block { animation-delay: 0.55s; }
+}
+
+@keyframes blockFloat {
+  from { transform: translateY(-7px); }
+  to   { transform: translateY(9px); }
+}
+@keyframes blockIn {
+  from { opacity: 0; transform: translateZ(70px) translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* .hero-inner is intentionally unpositioned: the hero scene is a positioned sibling,
+   so its code blocks paint above the hero text and stay clickable. */
+
+.hero-label {
+  margin-bottom: 18px;
+  color: var(--cyan);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin-bottom: 22px;
+  font-size: clamp(2.4rem, 6vw, 4.1rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.hero-lede {
+  max-width: 640px;
+  margin-bottom: 34px;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.hero-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.hero-note a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+}
+.hero-note a:hover { color: var(--cyan); text-decoration-color: var(--cyan); }
+
+/* ---------- Sections ---------- */
+.section {
+  padding: clamp(72px, 10vh, 104px) 0;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+.section-alt {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head { margin-bottom: clamp(36px, 5vh, 52px); }
+
+.section-label {
+  margin-bottom: 10px;
+  color: var(--cyan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-head h2 { font-size: clamp(1.75rem, 3.4vw, 2.35rem); }
+
+.section-lede {
+  max-width: 660px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(26px, 4vw, 40px);
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+.card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.card-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 4vw, 48px);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.card-featured::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.card-glyph-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card-glyph { width: 46px; height: 46px; flex: none; }
+.glyph-cyan { color: var(--cyan); }
+.glyph-blue { color: var(--blue); }
+.glyph-purple { color: var(--purple); }
+
+.card h3 { font-size: clamp(1.4rem, 2.6vw, 1.7rem); margin-bottom: 8px; }
+
+.card-categories {
+  color: var(--muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.card-slogan {
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 3px solid var(--cyan);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.card-desc {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tag {
+  padding: 5px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.project-link:hover { color: #7AE9F3; }
+.link-arrow { width: 18px; height: 18px; transition: transform 0.2s ease; }
+.project-link:hover .link-arrow { transform: translateX(4px); }
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.chip-featured {
+  border-color: rgba(64, 221, 235, 0.55);
+  color: var(--cyan);
+  background: var(--cyan-dim);
+}
+
+/* Note boxes */
+.note-box {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.note-box p { margin: 0; }
+.note-box p + p { margin-top: 0.7em; }
+.note-title {
+  color: var(--text);
+  font-weight: 700;
+  margin-bottom: 0.45em !important;
+}
+.note-subtle { border-left-color: var(--line-strong); }
+
+/* Featured side panel */
+.card-featured-side {
+  padding: clamp(20px, 3vw, 30px);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  align-self: start;
+}
+.card-featured-side h4 {
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.card-featured-side h4 + .feature-list { margin-bottom: 24px; }
+
+.feature-list { display: grid; gap: 9px; }
+.feature-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+.feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--cyan);
+}
+
+/* ---------- About ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(32px, 5vw, 60px);
+  align-items: start;
+}
+
+.about-body p { color: var(--muted); max-width: 62ch; }
+
+.philosophy-title { margin-top: 34px; font-size: 1.3rem; }
+
+.philosophy-list { display: grid; gap: 14px; margin-top: 20px; }
+.philosophy-list li {
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.philosophy-list li:hover { border-color: var(--line-strong); transform: translateX(4px); }
+.philosophy-list h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: var(--text);
+}
+.philosophy-list p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* Ecosystem chain */
+.about-side {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  padding: clamp(24px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+.about-side h3 { font-size: 1.25rem; }
+.about-side > p { color: var(--muted); font-size: 0.94rem; }
+
+.eco-chain {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.eco-node {
+  padding: 14px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.eco-root { border-color: rgba(64, 221, 235, 0.5); }
+.eco-tier {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.eco-name { font-weight: 800; font-size: 1.05rem; }
+.eco-root .eco-name { color: var(--cyan); }
+
+.eco-arrow {
+  width: 20px;
+  height: 20px;
+  margin: 2px auto;
+  color: var(--line-strong);
+  transform: rotate(90deg);
+}
+
+.eco-projects { display: grid; gap: 8px; }
+.eco-projects a {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 11px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+.eco-projects a:hover { border-color: var(--cyan); color: var(--cyan); }
+.eco-url {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-family: var(--mono);
+}
+.eco-projects a:hover .eco-url { color: var(--cyan); }
+
+/* ---------- Technologies ---------- */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.tech-list li {
+  padding: 14px 26px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.tech-list li:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-3px);
+}
+
+/* ---------- Contact ---------- */
+.contact-wrap { max-width: 860px; }
+
+.contact-card {
+  padding: clamp(22px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 16px;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.contact-key {
+  width: 84px;
+  flex: none;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-value { font-weight: 700; font-size: 1.05rem; }
+
+a.contact-mail { color: var(--cyan); }
+a.contact-mail:hover, a.contact-mail:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+.contact-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.contact-links a { color: var(--cyan); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding-top: 56px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+  padding-bottom: 44px;
+}
+
+.footer-brand .brand { margin-bottom: 14px; }
+.footer-brand .brand-icon { width: 34px; height: 34px; }
+.footer-brand p { color: var(--muted); font-size: 0.92rem; }
+
+.footer-col h4 {
+  margin-bottom: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.footer-col ul { display: grid; gap: 9px; }
+.footer-col a { color: var(--muted); font-size: 0.94rem; }
+.footer-col a:hover { color: var(--cyan); }
+
+.footer-bottom {
+  padding: 20px 0 26px;
+  border-top: 1px solid var(--line);
+}
+.footer-bottom p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Reveal animations ---------- */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Printing and synthetic full-page captures must always show content. */
+@media print {
+  html.js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card:hover,
+  .philosophy-list li:hover,
+  .tech-list li:hover,
+  .btn:hover,
+  .project-link:hover .link-arrow {
+    transform: none;
+    transition: none;
+  }
+  .block-float { animation: none; }
+  .block-spin { transition: none; }
+  .code-block { animation: none; }
+  .scene-inner { transition: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .card-featured { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-side { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+
+  .hero-scene {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    width: min(92%, 560px);
+    height: 420px;
+    margin: 30px auto 0;
+  }
+  .slot-safeview { top: 0;   left: 0;   width: min(56vw, 270px); transform: translateZ(30px) rotateY(-8deg) rotateX(3deg); }
+  .slot-launcher { top: 3%;  left: 50%;  width: min(50vw, 250px); transform: translateZ(0) rotateY(9deg) rotateX(2deg); }
+  .slot-script   { top: 52%; left: 12%;  width: min(46vw, 228px); transform: translateZ(-16px) rotateY(-11deg); }
+}
+
+@media (max-width: 860px) {
+  .nav-toggle { display: flex; }
+
+  .site-nav {
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    padding: 18px clamp(20px, 5vw, 32px) 22px;
+    background: rgba(10, 13, 19, 0.97);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-strong);
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  }
+  .site-nav.nav-open {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .nav-list { flex-direction: column; align-items: stretch; gap: 4px; }
+  .nav-link { display: block; padding: 13px 14px; font-size: 1.02rem; }
+  .nav-footnote { display: block; }
+}
+
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .hero-actions .btn { width: 100%; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .contact-key { width: 100%; }
+
+  .hero-scene { width: 96%; height: 510px; }
+  .slot-safeview { width: min(60vw, 232px); }
+  .slot-launcher { top: 35%; left: 12%; width: min(56vw, 218px); }
+  .slot-script { top: 68%; left: 0; width: min(56vw, 218px); }
+  .code-body { font-size: 10px; }
+}
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ Header / Navigation ============ -->
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a href="#home" class="brand" aria-label="FractalLabs — back to top">
+        <img src="https://i.ibb.co/n8b2dtz5/Fractal-Labs3.png" alt="" width="38" height="38" class="brand-icon" loading="eager">
+        <span class="brand-name">Fractal<span class="brand-accent">Labs</span></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link" data-nav-link>Home</a></li>
+          <li><a href="#projects" class="nav-link" data-nav-link>Projects</a></li>
+          <li><a href="#about" class="nav-link" data-nav-link>About</a></li>
+          <li><a href="#contact" class="nav-link" data-nav-link>Contact</a></li>
+        </ul>
+        <div class="nav-footnote">The Fractal family — SafeView, Launcher &amp; Script</div>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation menu" data-nav-toggle>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <p class="hero-label" data-reveal>Independent Software Development</p>
+        <h1 class="hero-title" data-reveal>Building software.<br>Exploring possibilities.</h1>
+        <p class="hero-lede" data-reveal>FractalLabs is an independent development identity focused on creating software, exploring technology and turning ideas into working products.</p>
+        <div class="hero-actions" data-reveal>
+          <a href="#projects" class="btn btn-primary">Explore Projects</a>
+          <a href="#about" class="btn btn-ghost">About FractalLabs</a>
+        </div>
+        <p class="hero-note" data-reveal>Home of the Fractal family — <a href="https://sv.extremeteam.online" target="_blank" rel="noopener">Fractal SafeView</a>, <a href="https://launcher.extremeteam.online" target="_blank" rel="noopener">FractalLauncher</a> and <a href="https://sc.extremeteam.online" target="_blank" rel="noopener">FractalScript</a>.</p>
+      </div>
+
+      <div class="hero-scene">
+        <div class="scene-inner" data-scene-inner>
+
+          <div class="block-slot slot-safeview" data-spin role="button" tabindex="0" aria-label="Spin the Fractal SafeView JSON block">
+            <div class="block-float f1">
+              <div class="block-spin">
+                <div class="code-block">
+                  <div class="code-head"><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span><span class="code-file">safeview.json</span></div>
+<pre class="code-body">{
+  <span class="j-key">"project"</span>: <span class="j-str">"Fractal SafeView"</span>,
+  <span class="j-key">"type"</span>: <span class="j-str">"media-security"</span>,
+  <span class="j-key">"url"</span>: <span class="j-str">"sv.extremeteam.online"</span>,
+  <span class="j-key">"stack"</span>: [<span class="j-str">"Electron"</span>, <span class="j-str">"FFmpeg"</span>],
+  <span class="j-key">"license"</span>: <span class="j-str">"MIT"</span>
+}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-slot slot-launcher" data-spin role="button" tabindex="0" aria-label="Spin the FractalLauncher JSON block">
+            <div class="block-float f2">
+              <div class="block-spin">
+                <div class="code-block">
+                  <div class="code-head"><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span><span class="code-file">launcher.json</span></div>
+<pre class="code-body">{
+  <span class="j-key">"project"</span>: <span class="j-str">"FractalLauncher"</span>,
+  <span class="j-key">"type"</span>: <span class="j-str">"minecraft-launcher"</span>,
+  <span class="j-key">"url"</span>:
+    <span class="j-str">"launcher.extremeteam.online"</span>,
+  <span class="j-key">"stack"</span>: [<span class="j-str">"Python"</span>, <span class="j-str">"PyWebView"</span>]
+}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-slot slot-script" data-spin role="button" tabindex="0" aria-label="Spin the FractalScript JSON block">
+            <div class="block-float f3">
+              <div class="block-spin">
+                <div class="code-block">
+                  <div class="code-head"><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span><span class="code-file">script.json</span></div>
+<pre class="code-body">{
+  <span class="j-key">"project"</span>: <span class="j-str">"FractalScript"</span>,
+  <span class="j-key">"type"</span>: <span class="j-str">"language-prototype"</span>,
+  <span class="j-key">"origin"</span>: <span class="j-str">"EzCode"</span>,
+  <span class="j-key">"vm"</span>: <span class="j-str">"register-based"</span>
+}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-label">Projects</p>
+          <h2>The Fractal family</h2>
+          <p class="section-lede">Every FractalLabs product ships under the Fractal name. One visual identity, one engineering philosophy — three very different problems.</p>
+        </header>
+
+        <!-- Featured: Fractal SafeView -->
+        <article class="card card-featured" id="safeview" data-reveal aria-labelledby="safeview-title">
+          <div class="card-featured-main">
+            <div class="card-glyph-row">
+              <!-- Shield + check: file sanitization & risk reduction -->
+              <svg class="card-glyph glyph-cyan" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                <path d="M32 7 L53 15 L53 30 C53 43 44 53 32 58 C20 53 11 43 11 30 L11 15 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M32 15 L45 20 L45 30.5 C45 38.5 40 45.5 32 50 C24 45.5 19 38.5 19 30.5 L19 20 Z" fill="currentColor" opacity="0.2"/>
+                <path d="M23.5 32 L29.5 38 L41 25" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="chip chip-featured">Featured</span>
+              <span class="chip">Fractal family</span>
+            </div>
+            <h3 id="safeview-title">Fractal SafeView</h3>
+            <p class="card-categories">Desktop Software · Media Security · MIT License</p>
+            <p class="card-slogan">&ldquo;Don&rsquo;t trust the file. Process it first.&rdquo;</p>
+            <p class="card-desc">Fractal SafeView is a security-focused desktop video player that processes potentially untrusted MP4 files through full video and audio re-encoding before playback. By generating a fresh video instead of directly playing the original file, SafeView introduces an additional layer of protection between untrusted media and the playback environment.</p>
+            <div class="note-box">
+              <p class="note-title">How SafeView thinks about risk</p>
+              <p>Re-encoding is risk reduction, not a guarantee. Generating a fresh video meaningfully reduces exposure to malformed media, but it does not make a file provably safe — SafeView makes no such claim. Treat it as one additional layer of defense alongside careful file handling, never as the only one.</p>
+            </div>
+            <div class="card-tech">
+              <span class="tag">Electron</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">FFmpeg</span>
+            </div>
+            <a class="project-link" href="https://sv.extremeteam.online" target="_blank" rel="noopener">Open Fractal SafeView
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="link-arrow"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <div class="card-featured-side">
+            <h4>What it does</h4>
+            <ul class="feature-list">
+              <li>Full video and audio re-encoding into a fresh MP4 before anything is played</li>
+              <li>Progressive playback — playback can start once roughly 1&nbsp;MB of the re-encoded file is ready</li>
+              <li>Seeking while the encoding is still running</li>
+              <li>Playback speed control from 0.5x to 2x</li>
+              <li>Frame-by-frame stepping</li>
+              <li>Fullscreen and Picture-in-Picture modes</li>
+              <li>Screenshot capture</li>
+              <li>Volume control and mute</li>
+              <li>Playback position memory between sessions</li>
+              <li>Drag-and-drop opening, native file picker, Windows &ldquo;Open with&rdquo; and command-line opening</li>
+              <li>Keyboard shortcuts for the whole player</li>
+            </ul>
+            <h4>Under the hood</h4>
+            <ul class="feature-list">
+              <li>Strict Electron main / preload / renderer process separation</li>
+              <li>Local streaming over localhost via MediaSource Extensions (MSE)</li>
+              <li>10-minute transcode timeout for oversized or pathological files</li>
+              <li>Temporary processing directory for intermediate files</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- FractalLauncher -->
+        <div class="card-grid">
+          <article class="card" id="launcher" data-reveal aria-labelledby="launcher-title">
+            <div class="card-glyph-row">
+              <!-- Rocket: launching games -->
+              <svg class="card-glyph glyph-blue" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                <path d="M32 6 C26 13 22 22 22 32 L22 42 L42 42 L42 32 C42 22 38 13 32 6 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="32" cy="25" r="5.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M22 33 L12 48 L22 45 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M42 33 L52 48 L42 45 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M32 45 C28.5 49.5 28.5 54.5 32 59 C35.5 54.5 35.5 49.5 32 45 Z" fill="currentColor" opacity="0.45"/>
+              </svg>
+              <span class="chip">Fractal family</span>
+            </div>
+            <h3 id="launcher-title">FractalLauncher</h3>
+            <p class="card-categories">Desktop Software · Minecraft Launcher</p>
+            <p class="card-desc">FractalLauncher is a desktop Minecraft launcher built with Python, PyWebView and skinview3d. Its development covers the full launch pipeline: account management with Microsoft authentication, version management, game configuration with RAM and JVM argument controls, mod-loader support, skin and cape management, console-based diagnostics and theme customization.</p>
+            <div class="note-box note-subtle">
+              <p>FractalLauncher is an actively developed project — the feature set keeps evolving. The launcher&rsquo;s own site is the single source of truth for its current status.</p>
+            </div>
+            <div class="card-tech">
+              <span class="tag">Python</span>
+              <span class="tag">PyWebView</span>
+              <span class="tag">skinview3d</span>
+            </div>
+            <a class="project-link" href="https://launcher.extremeteam.online" target="_blank" rel="noopener">Open FractalLauncher
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="link-arrow"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- FractalScript -->
+          <article class="card" id="fractalscript" data-reveal aria-labelledby="script-title">
+            <div class="card-glyph-row">
+              <!-- Terminal window: scripts & the execution environment -->
+              <svg class="card-glyph glyph-purple" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                <rect x="8" y="12" width="48" height="40" rx="6" fill="none" stroke="currentColor" stroke-width="3"/>
+                <path d="M14 12 L50 12 C53.3 12 56 14.7 56 18 L56 23 L8 23 L8 18 C8 14.7 10.7 12 14 12 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M17 33 L25 39.5 L17 46" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M31 46 L46 46" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+              <span class="chip">Fractal family</span>
+            </div>
+            <h3 id="script-title">FractalScript</h3>
+            <p class="card-categories">Programming Language · Software Development</p>
+            <p class="card-desc">FractalScript is a programming language project that evolved from EzCode. It is built around a custom execution environment and a register-based virtual machine prototype — an ongoing exploration of how language runtimes work beneath the surface.</p>
+            <div class="note-box note-subtle">
+              <p>FractalScript is an exploration project. Its design is developed step by step; the project site documents the current state of the language and its runtime.</p>
+            </div>
+            <div class="card-tech">
+              <span class="tag">Custom execution environment</span>
+              <span class="tag">Register-based VM prototype</span>
+            </div>
+            <a class="project-link" href="https://sc.extremeteam.online" target="_blank" rel="noopener">Open FractalScript
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="link-arrow"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section section-alt" id="about">
+      <div class="container about-grid">
+        <div class="about-body" data-reveal>
+          <header class="section-head">
+            <p class="section-label">About</p>
+            <h2>About FractalLabs</h2>
+          </header>
+          <p>FractalLabs represents the independent development work of a developer interested in software engineering, desktop applications, game development and emerging technologies. The focus is on building functional products, experimenting with unconventional ideas and understanding how things work beneath the surface. Rather than limiting development to one technology or discipline, projects are approached according to the problems they aim to solve.</p>
+          <p>There is no team page, no client list and no company history here — FractalLabs is exactly what the name suggests: independent development, carried end to end, from the first experiment to a working product. What ties the work together is shared engineering judgment rather than a shared product category.</p>
+
+          <h3 class="philosophy-title">Development philosophy</h3>
+          <ul class="philosophy-list">
+            <li>
+              <h4>Functionality before decoration</h4>
+              <p>Everything starts with the question: does it work? Polish follows only after behavior is correct.</p>
+            </li>
+            <li>
+              <h4>Practical engineering</h4>
+              <p>Solutions are chosen for the problem at hand, not for the résumé. The right tool is the one that ships.</p>
+            </li>
+            <li>
+              <h4>Experimentation and iteration</h4>
+              <p>Prototypes are welcome and dead ends are expected — each attempt teaches something the next one uses.</p>
+            </li>
+            <li>
+              <h4>Simplicity over unnecessary complexity</h4>
+              <p>The simplest design that satisfies the requirements wins, even when a more elaborate one would look better.</p>
+            </li>
+            <li>
+              <h4>Building real, usable software</h4>
+              <p>The goal is software meant to be used daily, not demos that exist only to be shown once.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Ecosystem -->
+        <div class="about-side" id="ecosystem" data-reveal>
+          <h3>The Fractal ecosystem</h3>
+          <p>Fractal is the shared name under which FractalLabs software ships. Each project carries it — Fractal SafeView, FractalLauncher, FractalScript — and follows the same rule: understand every layer of the stack you depend on.</p>
+          <div class="eco-chain">
+            <div class="eco-node eco-root">
+              <span class="eco-tier">Identity</span>
+              <span class="eco-name">FractalLabs</span>
+            </div>
+            <svg class="eco-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="eco-node">
+              <span class="eco-tier">Product family</span>
+              <span class="eco-name">Fractal</span>
+            </div>
+            <svg class="eco-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <ul class="eco-projects">
+              <li><a href="https://sv.extremeteam.online" target="_blank" rel="noopener">Fractal SafeView<span class="eco-url">sv.extremeteam.online</span></a></li>
+              <li><a href="https://launcher.extremeteam.online" target="_blank" rel="noopener">FractalLauncher<span class="eco-url">launcher.extremeteam.online</span></a></li>
+              <li><a href="https://sc.extremeteam.online" target="_blank" rel="noopener">FractalScript<span class="eco-url">sc.extremeteam.online</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Technologies ============ -->
+    <section class="section" id="tech">
+      <div class="container" data-reveal>
+        <header class="section-head">
+          <p class="section-label">Technologies</p>
+          <h2>A small, well-understood toolset</h2>
+          <p class="section-lede">FractalLabs stays with a deliberately compact stack — tools that are known deeply rather than adopted broadly.</p>
+        </header>
+        <ul class="tech-list" aria-label="Technologies used across FractalLabs projects">
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Electron</li>
+          <li>FFmpeg</li>
+          <li>PyWebView</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container contact-wrap" data-reveal>
+        <header class="section-head">
+          <p class="section-label">Contact</p>
+          <h2>Get in touch</h2>
+          <p class="section-lede">FractalLabs is an independent identity, so the project sites are the most direct way to follow the work. For questions, feedback or collaboration ideas, reach out by email.</p>
+        </header>
+
+        <div class="contact-card">
+          <div class="contact-row">
+            <span class="contact-key">Email</span>
+            <a class="contact-value contact-mail" href="mailto:fractallabsisac@gmail.com">fractallabsisac@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-key">Projects</span>
+            <span class="contact-links">
+              <a href="https://sv.extremeteam.online" target="_blank" rel="noopener">sv.extremeteam.online</a>
+              <a href="https://launcher.extremeteam.online" target="_blank" rel="noopener">launcher.extremeteam.online</a>
+              <a href="https://sc.extremeteam.online" target="_blank" rel="noopener">sc.extremeteam.online</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand" aria-label="FractalLabs — back to top">
+          <img src="https://i.ibb.co/n8b2dtz5/Fractal-Labs3.png" alt="" width="34" height="34" class="brand-icon">
+          <span class="brand-name">Fractal<span class="brand-accent">Labs</span></span>
+        </a>
+        <p>Building software. Exploring possibilities.<br>An independent development identity.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer site navigation">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#ecosystem">Fractal ecosystem</a></li>
+          <li><a href="#tech">Technologies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Footer project links">
+        <h4>Fractal family</h4>
+        <ul>
+          <li><a href="https://sv.extremeteam.online" target="_blank" rel="noopener">Fractal SafeView</a></li>
+          <li><a href="https://launcher.extremeteam.online" target="_blank" rel="noopener">FractalLauncher</a></li>
+          <li><a href="https://sc.extremeteam.online" target="_blank" rel="noopener">FractalScript</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year>2026</span> FractalLabs · Independent software development · Built by hand with HTML, CSS and vanilla JavaScript.</p>
+    </div>
+  </footer>
+
+  <script>
+/* FractalLabs — main.js
+   Mobile navigation, scroll state, section highlighting, reveal animations,
+   smooth anchor navigation with focus management, dynamic footer year.
+   No dependencies; defensive so a missing element never throws. */
+(function () {
+  'use strict';
+
+  /* Mark JS availability early — CSS only hides [data-reveal] when .js is set,
+     so content is always visible without JavaScript. */
+  document.documentElement.classList.add('js');
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Mobile navigation ---------- */
+  var header = document.querySelector('[data-header]');
+  var nav = document.querySelector('[data-nav]');
+  var toggle = document.querySelector('[data-nav-toggle]');
+  var navLinks = nav ? Array.prototype.slice.call(nav.querySelectorAll('[data-nav-link]')) : [];
+
+  function setNav(open) {
+    if (!nav || !toggle) { return; }
+    nav.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    document.body.style.overflow = open && window.innerWidth <= 860 ? 'hidden' : '';
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      setNav(!nav.classList.contains('nav-open'));
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('nav-open')) {
+        setNav(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('nav-open')) { return; }
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) { setNav(false); }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 860) { setNav(false); }
+    });
+  }
+
+  /* ---------- Header shadow on scroll ---------- */
+  function updateHeader() {
+    if (!header) { return; }
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  /* ---------- Anchor navigation: close menu + move focus ---------- */
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () { setNav(false); });
+  });
+
+  document.addEventListener('click', function (e) {
+    var anchor = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!anchor) { return; }
+    var id = anchor.getAttribute('href');
+    if (!id || id === '#') { return; }
+    var target = document.querySelector(id);
+    if (!target) { return; }
+    e.preventDefault();
+
+    if (prefersReducedMotion) {
+      target.scrollIntoView();
+    } else {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* Move focus to the section for keyboard and screen-reader users. */
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+
+    if (history.replaceState) {
+      history.replaceState(null, '', id);
+    }
+  });
+
+  /* ---------- Active section highlighting ---------- */
+  var sectionIds = ['home', 'projects', 'about', 'contact'];
+  var sections = sectionIds
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  function setActiveLink(id) {
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute('href');
+      link.classList.toggle('is-active', href === '#' + id);
+    });
+  }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var visible = {};
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        visible[entry.target.id] = entry.isIntersecting;
+      });
+      var current = sections
+        .filter(function (s) { return visible[s.id]; })
+        .pop();
+      if (current) { setActiveLink(current.id); }
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { observer.observe(s); });
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* ---------- Hero 3D code blocks: pointer tilt + click spin ---------- */
+  var sceneInner = document.querySelector('[data-scene-inner]');
+  var heroSection = document.getElementById('home');
+
+  if (sceneInner && heroSection && !prefersReducedMotion) {
+    var tiltRaf = null;
+    var tiltX = 0;
+    var tiltY = 0;
+
+    var applyTilt = function () {
+      tiltRaf = null;
+      sceneInner.style.transform =
+        'rotateX(' + (tiltY * -7).toFixed(2) + 'deg) rotateY(' + (tiltX * 9).toFixed(2) + 'deg)';
+    };
+
+    heroSection.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') { return; }
+      var rect = heroSection.getBoundingClientRect();
+      tiltX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      tiltY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      if (tiltRaf === null) { tiltRaf = requestAnimationFrame(applyTilt); }
+    });
+
+    heroSection.addEventListener('pointerleave', function () {
+      if (tiltRaf !== null) { cancelAnimationFrame(tiltRaf); tiltRaf = null; }
+      sceneInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  }
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-spin]')).forEach(function (slot) {
+    var spinner = slot.querySelector('.block-spin');
+    if (!spinner) { return; }
+    var angle = 0;
+    var spin = function () {
+      if (prefersReducedMotion) { return; }
+      angle += 360;
+      spinner.style.transform = 'rotateY(' + angle + 'deg)';
+    };
+    slot.addEventListener('click', spin);
+    slot.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        spin();
+      }
+    });
+  });
+
+  /* ---------- Dynamic year ---------- */
+  var yearEls = document.querySelectorAll('[data-year]');
+  var now = new Date().getFullYear();
+  yearEls.forEach(function (el) { el.textContent = String(now); });
+})();
+  </script>
+</body>
+</html>
